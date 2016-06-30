@@ -67,24 +67,48 @@ let EvalPhase = React.createClass({
   },
 
   onDescriptionsChanged: function(evt) {
-    this.setState({
-      currentDescription: evt.target.value
-    });
-    this.state.currentItem.description = evt.target.value;
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.currentDescription === undefined || this.state.currentDescription.length === 0)){
+      this.setState({
+        currentDescription: "Vi arbejdede hver dag med mennesker for at hjælpe dem videre i livet"
+      });
+      this.state.currentItem.description = "Vi arbejdede hver dag med mennesker for at hjælpe dem videre i livet";
+    }
+    else {
+      this.setState({
+        currentDescription: evt.target.value
+      });
+      this.state.currentItem.description = evt.target.value;
+    }
   },
 
   onMeaningChanged: function(evt){
-    this.setState({
-      currentMeaning: evt.target.value
-    });
-    this.state.currentItem.meaning = evt.target.value;
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.currentMeaning === undefined || this.state.currentMeaning.length === 0)){
+      this.setState({
+        currentMeaning:  "Det betyder meget for mig at være med til at gøre en forskel for mennesker"
+      });
+      this.state.currentItem.meaning = "Det betyder meget for mig at være med til at gøre en forskel for mennesker";
+    }
+    else {
+      this.setState({
+        currentMeaning: evt.target.value
+      });
+      this.state.currentItem.meaning = evt.target.value;
+    }
   },
 
   onEffectChanged: function(evt){
-    this.setState({
-      currentEffect: evt.target.value
-    });
-    this.state.currentItem.effect = evt.target.value;
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.currentEffect === undefined || this.state.currentEffect.length === 0)){
+      this.setState({
+        currentEffect: "Det har styrket min tro på at hjælp skal gives i de rette doser, så det bliver en hjælp til at løse -og ikke en overtagelse af problemet"
+      });
+      this.state.currentItem.effect = "Det har styrket min tro på at hjælp skal gives i de rette doser, så det bliver en hjælp til at løse -og ikke en overtagelse af problemet";
+    }
+    else {
+      this.setState({
+        currentEffect: evt.target.value
+      });
+      this.state.currentItem.effect = evt.target.value;
+    }
   },
 
   render: function() {

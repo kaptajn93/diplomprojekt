@@ -55,9 +55,15 @@ let GoalExercise = React.createClass({
   },
 
   onGoalTextChanged: function(evt){
-    this.setState({
-      goalText: evt.target.value
-    });
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && this.state.goalText.length === 0){
+      this.setState({
+        goalText: "Jeg vil lære hvordan jeg holder modet oppe uanset hvad der sker"
+      });
+    }
+    else
+      this.setState({
+        goalText: evt.target.value
+      });
 
   },
 
@@ -65,8 +71,6 @@ let GoalExercise = React.createClass({
     this.setState({
       phase: 1
     });
-
-
 
     if (this.props.onFinished !== undefined)
       this.props.onFinished(items);
@@ -98,10 +102,10 @@ let GoalExercise = React.createClass({
       mainContent =
       <div>
         <div dangerouslySetInnerHTML={this.getHtmlText(0)}/>
-        <TextField style={{width: 400}}
+        <TextField style={{width: '100%'}}
           hintText="Mit mål er..." value={this.state.goalText} onChange={this.onGoalTextChanged}
         />
-        <RaisedButton primary={true} style={{marginLeft:16}}
+        <RaisedButton primary={true} style={{marginTop:8}}
           label="Ok" icon={<Done />} onClick={this.onFinished}></RaisedButton>
       </div>
     }

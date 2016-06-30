@@ -125,24 +125,48 @@ let VideoExercise = React.createClass({
   },
 
   firstNameChange:function(event){
-    this.setState({
-      firstName: event.target.value,
-      messageHeading: "Besked til " + event.target.value,
-      userMessage: this.hasChangedUserMaessage ? this.state.userMessage :
-        "Hej " + event.target.value + ", jeg håber at du vil hjælpe mig feedback. Fortæl mig hvad du synes, og hvad jeg kan ændre."
-    });
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.firstName === undefined || this.state.firstName.length === 0)){
+      this.setState({
+          firstName: "Mikkel",
+          messageHeading: "Besked til Mikkel",
+          userMessage: this.hasChangedUserMaessage ? this.state.userMessage :
+            "Hej Mikkel, vil du give mig et råd til hvordan jeg kan fortælle min historie bedre?"
+      });
+    }
+    else{
+      this.setState({
+        firstName: event.target.value,
+        messageHeading: "Besked til " + event.target.value,
+        userMessage: this.hasChangedUserMaessage ? this.state.userMessage :
+          "Hej " + event.target.value + ", jeg håber at du vil hjælpe mig feedback. Fortæl mig hvad du synes, og hvad jeg kan ændre."
+      });
+    }
   },
 
   lastNameChange:function(event){
-    this.setState({
-      lastName: event.target.value
-    });
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.lastName === undefined || this.state.lastName.length === 0)){
+      this.setState({
+        lastName: "Schrøder"
+      });
+    }
+    else{
+      this.setState({
+        lastName: event.target.value
+      });
+    }
   },
 
   emailChange:function(event){
-    this.setState({
-      email: event.target.value
-    });
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.email === undefined || this.state.email.length === 0)){
+      this.setState({
+        email: "mik@miracle.dk"
+      });
+    }
+    else{
+      this.setState({
+        email: event.target.value
+      });
+    }
   },
 
   userMessageChanged:function(event){

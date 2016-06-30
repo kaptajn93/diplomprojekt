@@ -12638,7 +12638,7 @@
 	
 	var _LoginPage2 = _interopRequireDefault(_LoginPage);
 	
-	var _VideoRecord = __webpack_require__(836);
+	var _VideoRecord = __webpack_require__(837);
 	
 	var _VideoRecord2 = _interopRequireDefault(_VideoRecord);
 	
@@ -65315,24 +65315,45 @@
 	  },
 	
 	  onDescriptionsChanged: function onDescriptionsChanged(evt) {
-	    this.setState({
-	      currentDescription: evt.target.value
-	    });
-	    this.state.currentItem.description = evt.target.value;
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.currentDescription === undefined || this.state.currentDescription.length === 0)) {
+	      this.setState({
+	        currentDescription: "Vi arbejdede hver dag med mennesker for at hjælpe dem videre i livet"
+	      });
+	      this.state.currentItem.description = "Vi arbejdede hver dag med mennesker for at hjælpe dem videre i livet";
+	    } else {
+	      this.setState({
+	        currentDescription: evt.target.value
+	      });
+	      this.state.currentItem.description = evt.target.value;
+	    }
 	  },
 	
 	  onMeaningChanged: function onMeaningChanged(evt) {
-	    this.setState({
-	      currentMeaning: evt.target.value
-	    });
-	    this.state.currentItem.meaning = evt.target.value;
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.currentMeaning === undefined || this.state.currentMeaning.length === 0)) {
+	      this.setState({
+	        currentMeaning: "Det betyder meget for mig at være med til at gøre en forskel for mennesker"
+	      });
+	      this.state.currentItem.meaning = "Det betyder meget for mig at være med til at gøre en forskel for mennesker";
+	    } else {
+	      this.setState({
+	        currentMeaning: evt.target.value
+	      });
+	      this.state.currentItem.meaning = evt.target.value;
+	    }
 	  },
 	
 	  onEffectChanged: function onEffectChanged(evt) {
-	    this.setState({
-	      currentEffect: evt.target.value
-	    });
-	    this.state.currentItem.effect = evt.target.value;
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.currentEffect === undefined || this.state.currentEffect.length === 0)) {
+	      this.setState({
+	        currentEffect: "Det har styrket min tro på at hjælp skal gives i de rette doser, så det bliver en hjælp til at løse -og ikke en overtagelse af problemet"
+	      });
+	      this.state.currentItem.effect = "Det har styrket min tro på at hjælp skal gives i de rette doser, så det bliver en hjælp til at løse -og ikke en overtagelse af problemet";
+	    } else {
+	      this.setState({
+	        currentEffect: evt.target.value
+	      });
+	      this.state.currentItem.effect = evt.target.value;
+	    }
 	  },
 	
 	  render: function render() {
@@ -68676,7 +68697,11 @@
 	  },
 	
 	  onGoalTextChanged: function onGoalTextChanged(evt) {
-	    this.setState({
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && this.state.goalText.length === 0) {
+	      this.setState({
+	        goalText: "Jeg vil lære hvordan jeg holder modet oppe uanset hvad der sker"
+	      });
+	    } else this.setState({
 	      goalText: evt.target.value
 	    });
 	  },
@@ -68711,10 +68736,10 @@
 	        'div',
 	        null,
 	        _react2.default.createElement('div', { dangerouslySetInnerHTML: this.getHtmlText(0) }),
-	        _react2.default.createElement(_textField2.default, { style: { width: 400 },
+	        _react2.default.createElement(_textField2.default, { style: { width: '100%' },
 	          hintText: 'Mit mål er...', value: this.state.goalText, onChange: this.onGoalTextChanged
 	        }),
-	        _react2.default.createElement(_raisedButton2.default, { primary: true, style: { marginLeft: 16 },
+	        _react2.default.createElement(_raisedButton2.default, { primary: true, style: { marginTop: 8 },
 	          label: 'Ok', icon: _react2.default.createElement(_done2.default, null), onClick: this.onFinished })
 	      );
 	    } else if (this.state.phase === 1) {
@@ -69316,23 +69341,43 @@
 	  },
 	
 	  firstNameChange: function firstNameChange(event) {
-	    this.setState({
-	      firstName: event.target.value,
-	      messageHeading: "Besked til " + event.target.value,
-	      userMessage: this.hasChangedUserMaessage ? this.state.userMessage : "Hej " + event.target.value + ", jeg håber at du vil hjælpe mig feedback. Fortæl mig hvad du synes, og hvad jeg kan ændre."
-	    });
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.firstName === undefined || this.state.firstName.length === 0)) {
+	      this.setState({
+	        firstName: "Mikkel",
+	        messageHeading: "Besked til Mikkel",
+	        userMessage: this.hasChangedUserMaessage ? this.state.userMessage : "Hej Mikkel, vil du give mig et råd til hvordan jeg kan fortælle min historie bedre?"
+	      });
+	    } else {
+	      this.setState({
+	        firstName: event.target.value,
+	        messageHeading: "Besked til " + event.target.value,
+	        userMessage: this.hasChangedUserMaessage ? this.state.userMessage : "Hej " + event.target.value + ", jeg håber at du vil hjælpe mig feedback. Fortæl mig hvad du synes, og hvad jeg kan ændre."
+	      });
+	    }
 	  },
 	
 	  lastNameChange: function lastNameChange(event) {
-	    this.setState({
-	      lastName: event.target.value
-	    });
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.lastName === undefined || this.state.lastName.length === 0)) {
+	      this.setState({
+	        lastName: "Schrøder"
+	      });
+	    } else {
+	      this.setState({
+	        lastName: event.target.value
+	      });
+	    }
 	  },
 	
 	  emailChange: function emailChange(event) {
-	    this.setState({
-	      email: event.target.value
-	    });
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.email === undefined || this.state.email.length === 0)) {
+	      this.setState({
+	        email: "mik@miracle.dk"
+	      });
+	    } else {
+	      this.setState({
+	        email: event.target.value
+	      });
+	    }
 	  },
 	
 	  userMessageChanged: function userMessageChanged(event) {
@@ -69691,9 +69736,15 @@
 	  },
 	
 	  onAnswerTextChanged: function onAnswerTextChanged(evt) {
-	    this.setState({
-	      answerText: evt.target.value
-	    });
+	    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.answerText === null || this.state.answerText.length === 0)) {
+	      this.setState({
+	        answerText: "Der var nedskæringer – og jeg havde nok haft for meget fravær – derfor tror jeg det blev mig"
+	      });
+	    } else {
+	      this.setState({
+	        answerText: evt.target.value
+	      });
+	    }
 	  },
 	
 	  onFinished: function onFinished() {
@@ -69724,10 +69775,10 @@
 	        'div',
 	        null,
 	        _react2.default.createElement('div', { dangerouslySetInnerHTML: this.getHtmlText(0) }),
-	        _react2.default.createElement(_textField2.default, { style: { width: 400 },
+	        _react2.default.createElement(_textField2.default, { style: { width: '100%' },
 	          hintText: 'Skriv..', value: this.state.answerText, onChange: this.onAnswerTextChanged, multiLine: true
 	        }),
-	        _react2.default.createElement(_raisedButton2.default, { primary: true, style: { marginLeft: 16 },
+	        _react2.default.createElement(_raisedButton2.default, { primary: true, style: { marginTop: 4 },
 	          label: 'Ok', icon: _react2.default.createElement(_done2.default, null), onClick: this.onFinished })
 	      );
 	    } else if (this.state.phase === 1) {
@@ -69878,7 +69929,6 @@
 	
 	    // Secondly invoke the remote API and return a promise
 	    var url = apiUrl + "/videoExercise";
-	    //var url = 'http://betterways-test.azurewebsites.net/api';
 	
 	    console.log("Sending video UUID:", videoUuid);
 	
@@ -73563,11 +73613,27 @@
 	
 	var _raisedButton2 = _interopRequireDefault(_raisedButton);
 	
+	var _lockOutline = __webpack_require__(836);
+	
+	var _lockOutline2 = _interopRequireDefault(_lockOutline);
+	
+	var _chevronRight = __webpack_require__(766);
+	
+	var _chevronRight2 = _interopRequireDefault(_chevronRight);
+	
 	var _authentication = __webpack_require__(700);
 	
 	var _Theme = __webpack_require__(732);
 	
 	var _Theme2 = _interopRequireDefault(_Theme);
+	
+	var _colors = __webpack_require__(614);
+	
+	var _colors2 = _interopRequireDefault(_colors);
+	
+	var _divider = __webpack_require__(759);
+	
+	var _divider2 = _interopRequireDefault(_divider);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -73585,7 +73651,6 @@
 	var landingPageContainerStyle = {
 	  background: 'white',
 	  marginTop: '32px',
-	  width: 380,
 	  marginLeft: 'auto',
 	  marginRight: 'auto'
 	};
@@ -73638,10 +73703,8 @@
 	
 	      if (that.props.route.loginState.isLoggedIn !== undefined) that.props.route.loginState.isLoggedIn(true);
 	    }).catch(function (err) {
-	      var foo = 3;
+	      //TODO: Notify user
 	    });
-	
-	    //window.location.assign("/#/dashboard");
 	  },
 	
 	  handleUserIdChange: function handleUserIdChange(event) {
@@ -73668,53 +73731,117 @@
 	          Col,
 	          { xs: 12, sm: 12, md: 8, lg: 8 },
 	          _react2.default.createElement(
-	            'h1',
-	            { style: title },
-	            'Better ',
+	            Row,
+	            null,
 	            _react2.default.createElement(
-	              'span',
-	              { style: primaryText },
-	              'W'
+	              Col,
+	              { xs: 8, sm: 8, md: 8, lg: 8 },
+	              _react2.default.createElement(
+	                _paper2.default,
+	                { style: landingPageContainerStyle },
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'div',
+	                    { style: paddingStyle },
+	                    _react2.default.createElement(
+	                      'h1',
+	                      { style: { fontWeight: 400, marginBottom: 4, marginTop: 0 } },
+	                      'BETTER ',
+	                      _react2.default.createElement(
+	                        'strong',
+	                        null,
+	                        'WAYS'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'h4',
+	                      { style: { color: _Theme2.default.palette.primary1Color, marginTop: 0, marginBottom: 0 } },
+	                      'Vejen til dit nye job'
+	                    )
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                _paper2.default,
+	                { style: { marginTop: 16 } },
+	                _react2.default.createElement(
+	                  'div',
+	                  { style: paddingStyle },
+	                  _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: '<div data-oembed-url="https://vimeo.com/168644549/89625991af"> <div> <div style="left: 0px; width: 100%; height: 0px; position: relative; padding-bottom: 42.187%;"><iframe allowfullscreen="true" frameborder="0" mozallowfullscreen="true" src="//player.vimeo.com/video/168644549?byline=0&amp;badge=0&amp;portrait=0&amp;title=0" style="top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;" webkitallowfullscreen="true"></iframe></div> </div> </div>' } }),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Vi hjælper dig på vej til at finde det job der passer til netop din profil og dine kompetencer. Gennem coaching og sparring får du en klar forståelse af dig selv og dine kompetencer. Du bliver rustet til at finde det job som du brænder for.'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'BETTER WAYS - en ny begyndelse'
+	                  ),
+	                  _react2.default.createElement(_raisedButton2.default, { secondary: true, style: { marginTop: 24 }, label: 'Læs mere' })
+	                )
+	              )
 	            ),
-	            'ays'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { style: { textAlign: 'center' } },
 	            _react2.default.createElement(
-	              _paper2.default,
-	              { style: landingPageContainerStyle },
+	              Col,
+	              { xs: 4, sm: 4, md: 4, lg: 4 },
 	              _react2.default.createElement(
 	                'div',
-	                { style: paddingStyle },
+	                null,
 	                _react2.default.createElement(
-	                  Row,
-	                  { style: noMargin },
+	                  _paper2.default,
+	                  { style: { marginTop: 32 } },
 	                  _react2.default.createElement(
-	                    Col,
-	                    { xs: 12, sm: 12, md: 12, lg: 12 },
+	                    'div',
+	                    { style: {
+	                        backgroundColor: _Theme2.default.palette.backgroundColor,
+	                        display: 'flex', padding: '8 16' } },
+	                    _react2.default.createElement(_lockOutline2.default, { style: { height: '29px', width: '29px' }, color: _colors2.default.grey500 }),
 	                    _react2.default.createElement(
 	                      'h3',
-	                      null,
-	                      'Velkommen'
-	                    ),
-	                    _react2.default.createElement(_textField2.default, {
-	                      floatingLabelText: 'Brugernavn',
-	                      type: 'text',
-	
-	                      value: this.state.userId,
-	                      onChange: this.handleUserIdChange
-	                    }),
-	                    _react2.default.createElement('br', null),
-	                    _react2.default.createElement(_textField2.default, {
-	                      floatingLabelText: 'Password',
-	                      type: 'password',
-	
-	                      value: this.state.password,
-	                      onChange: this.handlePasswordChange
-	                    }),
-	                    _react2.default.createElement('br', null),
-	                    _react2.default.createElement(_raisedButton2.default, { onClick: this.handleSubmit, primary: true, style: { marginTop: 32 }, label: 'Log ind' })
+	                      { style: {
+	                          fontWeight: 'normal',
+	                          margin: 0,
+	                          marginLeft: 8,
+	                          marginTop: 5
+	                        } },
+	                      'Log ind'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                      'div',
+	                      { style: paddingStyle },
+	                      _react2.default.createElement(
+	                        Row,
+	                        { style: noMargin },
+	                        _react2.default.createElement(
+	                          Col,
+	                          { xs: 12, sm: 12, md: 12, lg: 12 },
+	                          _react2.default.createElement(_textField2.default, {
+	                            floatingLabelText: 'Brugernavn',
+	                            type: 'text',
+	                            style: { width: '100%' },
+	                            value: this.state.userId,
+	                            onChange: this.handleUserIdChange
+	                          }),
+	                          _react2.default.createElement('br', null),
+	                          _react2.default.createElement(_textField2.default, {
+	                            floatingLabelText: 'Password',
+	                            type: 'password',
+	                            style: { width: '100%' },
+	                            value: this.state.password,
+	                            onChange: this.handlePasswordChange
+	                          }),
+	                          _react2.default.createElement('br', null),
+	                          _react2.default.createElement(_raisedButton2.default, { onClick: this.handleSubmit, primary: true, style: { marginTop: 32 }, label: 'Log ind' })
+	                        )
+	                      )
+	                    )
 	                  )
 	                )
 	              )
@@ -73733,6 +73860,47 @@
 
 /***/ },
 /* 836 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(264);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAddonsPureRenderMixin = __webpack_require__(634);
+	
+	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
+	
+	var _svgIcon = __webpack_require__(666);
+	
+	var _svgIcon2 = _interopRequireDefault(_svgIcon);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ActionLockOutline = _react2.default.createClass({
+	  displayName: 'ActionLockOutline',
+	
+	  mixins: [_reactAddonsPureRenderMixin2.default],
+	
+	  render: function render() {
+	    return _react2.default.createElement(
+	      _svgIcon2.default,
+	      this.props,
+	      _react2.default.createElement('path', { d: 'M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6zM18 20H6V10h12v10z' })
+	    );
+	  }
+	});
+	
+	exports.default = ActionLockOutline;
+	module.exports = exports['default'];
+
+/***/ },
+/* 837 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -54,9 +54,16 @@ let QuestionAnswerExercise = React.createClass({
   },
 
   onAnswerTextChanged: function(evt){
-    this.setState({
-      answerText: evt.target.value
-    });
+    if (sessionStorage.sessionUserRoles.split(",").indexOf("Demo") >= 0 && (this.state.answerText === null || this.state.answerText.length === 0)){
+      this.setState({
+        answerText: "Der var nedskæringer – og jeg havde nok haft for meget fravær – derfor tror jeg det blev mig"
+      });
+    }
+    else {
+      this.setState({
+        answerText: evt.target.value
+      });
+    }
 
   },
 
@@ -92,10 +99,10 @@ let QuestionAnswerExercise = React.createClass({
       mainContent =
       <div>
         <div dangerouslySetInnerHTML={this.getHtmlText(0)}/>
-        <TextField style={{width: 400}}
+        <TextField style={{width: '100%'}}
           hintText="Skriv.." value={this.state.answerText} onChange={this.onAnswerTextChanged} multiLine={true}
         />
-        <RaisedButton primary={true} style={{marginLeft:16}}
+        <RaisedButton primary={true} style={{marginTop:4}}
           label="Ok" icon={<Done />} onClick={this.onFinished}></RaisedButton>
       </div>
     }
