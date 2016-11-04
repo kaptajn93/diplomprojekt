@@ -1,7 +1,6 @@
 import axios from 'axios'
-
-//const apiUrl = 'http://localhost:58982/api'
-const apiUrl = 'http://betterways-test.azurewebsites.net/api'
+import api from '../apiUrlHelper'
+var apiUrl = api.url;
 
 
 // Add a request interceptor

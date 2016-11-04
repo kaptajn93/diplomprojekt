@@ -1,17 +1,18 @@
 import axios from 'axios'
+import * as C from '../constants';
 
-export const REQUEST_SEND_SMS = 'REQUEST_SEND_SMS'
+//export const REQUEST_SEND_SMS = 'REQUEST_SEND_SMS'
 function requestSendSms(id) {
   return {
-    type: REQUEST_SEND_SMS,
+    type: C.REQUEST_SEND_SMS,
     id
   }
 }
 
-export const RECEIVE_SEND_SMS = 'RECEIVE_SEND_SMS'
+//export const RECEIVE_SEND_SMS = 'RECEIVE_SEND_SMS'
 function receiveSendSms(id, json) {
   return {
-    type: RECEIVE_SEND_SMS,
+    type: C.RECEIVE_SEND_SMS,
     id,
     posts: json,//json.data.children.map(child => child.data),
     receivedAt: Date.now()

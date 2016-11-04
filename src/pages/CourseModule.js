@@ -19,112 +19,114 @@ import CourseModuleExperiment from '../components/CourseModuleExperiment';
 
 import Theme from '../components/Theme';
 
-import { getModule, getModuleResults } from '../actions/api';
+//import { getModule, getModuleResults } from '../actions/api';
+import { getModule} from '../actions/Module/getModule';
+import { getModuleResults } from '../actions/Module/getModuleResults';
 
 const {Grid, Row, Col} = require('react-flexgrid');
 
 var pageContainerStyle = {
-  margin:'32px 20px'
+    margin:'32px 20px'
 }
 
 var courseContainerStyle = {
-  background: 'white',
-  marginTop: '32px'
+    background: 'white',
+    marginTop: '32px'
 };
 
 var moduleNumStyle = {
-  color: '#888888',
-  marginTop: '0px',
-  marginBottom: '10px'
+    color: '#888888',
+    marginTop: '0px',
+    marginBottom: '10px'
 }
 
 var moduleNameStyle = {
-  marginTop: '0px',
-  marginBottom: '0px'
+    marginTop: '0px',
+    marginBottom: '0px'
 
 }
 
 var paddingStyle = {
-  padding: '32px'
+    padding: '32px'
 }
 
 var marginStyle = {
-  margin: '32px'
+    margin: '32px'
 }
 
 var iconStyle = {
-  color : 'black'
+    color : 'black'
 }
 
 let CourseModule = React.createClass({
-  getInitialState:function(){
-    return{
-      moduleName: '',
-      moduleIndex: -1,
-      isExerciseCompleted: false,
-      exerciseGoalText: '',
-    };
-  },
+    getInitialState:function(){
+        return{
+            moduleName: '',
+            moduleIndex: -1,
+            isExerciseCompleted: false,
+            exerciseGoalText: '',
+        };
+    },
 
-  exercisesStatusChanged: function(isExerciseCompleted){
-    this.setState({isExerciseCompleted: isExerciseCompleted});
-  },
+    exercisesStatusChanged: function(isExerciseCompleted){
+        this.setState({isExerciseCompleted: isExerciseCompleted});
+    },
 
-  componentDidMount : function(){
-    this.setState({
-      isLoading:true
-    })
-    this.props.dispatch(getModule(this.props.params.moduleId)).then(
-      json => {
-      this.setState({
-        module: json.module,
-        introduction: json.module.introduction,
-        exercise: json.module.exercise,
-        reflection: json.module.reflection,
-        moduleName: json.module.name,
-        moduleIndex: json.module.moduleIndex
-      });
-    });
-
-    //Load results
-    this.props.dispatch(getModuleResults(this.props.params.moduleId)).then(
-      json => {
+    componentDidMount : function(){
         this.setState({
-          moduleResults:json.results.moduleResults,
-          isModuleActive:json.results.isActive,
-          isModuleCompleted:json.results.isCompleted,
-          activeScoreCard:json.results.activeScoreCard
+            isLoading:true
         })
-      });
-  },
+        this.props.dispatch(getModule(this.props.params.moduleId)).then(
+          json => {
+              this.setState({
+                  module: json.module,
+                  introduction: json.module.introduction,
+                  exercise: json.module.exercise,
+                  reflection: json.module.reflection,
+                  moduleName: json.module.name,
+                  moduleIndex: json.module.moduleIndex
+              });
+          });
 
-  onExerciseGoalUpdated:function(exerciseGoalText){
-    this.setState({exerciseGoalText: exerciseGoalText})
-  },
+        //Load results
+        this.props.dispatch(getModuleResults(this.props.params.moduleId)).then(
+          json => {
+              this.setState({
+                  moduleResults:json.results.moduleResults,
+                  isModuleActive:json.results.isActive,
+                  isModuleCompleted:json.results.isCompleted,
+                  activeScoreCard:json.results.activeScoreCard
+              })
+          });
+    },
 
-  render: function() {
+    onExerciseGoalUpdated:function(exerciseGoalText){
+        this.setState({exerciseGoalText: exerciseGoalText})
+    },
 
-    var styles = {
-      default_tab:{
-        color: 'black',
-        backgroundColor:  Theme.palette.backgroundColor,
-        fontWeight: 400,
-      },
-      active_tab:{
-        color: 'blue',
-      }
-    }
+    render: function() {
 
-    styles.tab = []
-    styles.tab[0] = styles.default_tab;
-    styles.tab[1] = styles.default_tab;
-    styles.tab[2] = styles.default_tab;
-    //styles.tab[this.state.slideIndex] = objectAssign({},   styles.tab[this.state.slideIndex], styles.active_tab);
+        var styles = {
+            default_tab:{
+                color: 'black',
+                backgroundColor:  Theme.palette.backgroundColor,
+                fontWeight: 400,
+            },
+            active_tab:{
+                color: 'blue',
+            }
+        }
 
-    return (
-      <div style={pageContainerStyle}>
-        <Row>
-          <Col xs={0} sm={0} md={2} lg={2}/>
+        styles.tab = []
+        styles.tab[0] = styles.default_tab;
+        styles.tab[1] = styles.default_tab;
+        styles.tab[2] = styles.default_tab;
+        //styles.tab[this.state.slideIndex] = objectAssign({},   styles.tab[this.state.slideIndex], styles.active_tab);
+
+        return (
+          <div style={pageContainerStyle}>
+          <Row>
+            <Col xs={0} sm={0} md={2} lg={2}/>
           <Col xs={12} sm={12} md={8} lg={8}>
             <Row>
               <Col  xs={12} sm={12} md={12} lg={12}>
@@ -144,45 +146,45 @@ let CourseModule = React.createClass({
                   </div>
                   <Tabs >
                     <Tab style={styles.tab[0]}
-                      icon={<FontIcon color={Theme.palette.disabledColor} className="material-icons">wb_incandescent</FontIcon>}
-                      label="VIDEN">
-                      <div style={paddingStyle} >
-                        <CourseModuleInfo resourceId={this.state.introduction}/>
+icon={<FontIcon color={Theme.palette.disabledColor} className="material-icons">wb_incandescent</FontIcon>}
+label="VIDEN">
+<div style={paddingStyle} >
+  <CourseModuleInfo resourceId={this.state.introduction}/>
+</div>
+</Tab>
+<Tab style={styles.tab[1]}
+icon={<FontIcon color={Theme.palette.disabledColor} className="material-icons">directions_walk</FontIcon>}
+label="EKSPERIMENT">
+<div style={paddingStyle} >
+  {
+      this.state.moduleResults !== undefined ?
+        <CourseModuleExperiment isModuleActive={this.state.isModuleActive} isModuleCompleted={this.state.isModuleActive} results={this.state.moduleResults} onExerciseGoalUpdated={this.onExerciseGoalUpdated} exerciseGoalText={this.state.exerciseGoalText} isActive={this.state.isModuleActive || this.state.isModuleCompleted} exercisesStatusChanged={this.exercisesStatusChanged} resourceId={this.state.exercise}/>
+        : null
+}
                       </div>
-                    </Tab>
-                    <Tab style={styles.tab[1]}
-                      icon={<FontIcon color={Theme.palette.disabledColor} className="material-icons">directions_walk</FontIcon>}
-                      label="EKSPERIMENT">
-                      <div style={paddingStyle} >
-                        {
-                          this.state.moduleResults !== undefined ?
-                            <CourseModuleExperiment isModuleActive={this.state.isModuleActive} isModuleCompleted={this.state.isModuleActive} results={this.state.moduleResults} onExerciseGoalUpdated={this.onExerciseGoalUpdated} exerciseGoalText={this.state.exerciseGoalText} isActive={this.state.isModuleActive || this.state.isModuleCompleted} exercisesStatusChanged={this.exercisesStatusChanged} resourceId={this.state.exercise}/>
+</Tab>
+<Tab style={styles.tab[2]}
+icon={<FontIcon color={Theme.palette.disabledColor} className="material-icons">cloud</FontIcon>}
+label="REFLEKTION">
+<div style={paddingStyle} >
+  {
+      this.state.moduleResults !== undefined ?
+        <CourseModuleExperiment  isModuleActive={this.state.isModuleActive} isModuleCompleted={this.state.isModuleCompleted} results={this.state.moduleResults} exerciseGoalText={this.state.exerciseGoalText} exercisesStatusChanged={this.exercisesStatusChanged} isActive={this.state.isExerciseCompleted} resourceId={this.state.reflection} />
                             : null
-                        }
+}
                       </div>
-                    </Tab>
-                    <Tab style={styles.tab[2]}
-                      icon={<FontIcon color={Theme.palette.disabledColor} className="material-icons">cloud</FontIcon>}
-                      label="REFLEKTION">
-                      <div style={paddingStyle} >
-                        {
-                          this.state.moduleResults !== undefined ?
-                            <CourseModuleExperiment  isModuleActive={this.state.isModuleActive} isModuleCompleted={this.state.isModuleCompleted} results={this.state.moduleResults} exerciseGoalText={this.state.exerciseGoalText} exercisesStatusChanged={this.exercisesStatusChanged} isActive={this.state.isExerciseCompleted} resourceId={this.state.reflection} />
-                            : null
-                        }
-                      </div>
-                    </Tab>
-                  </Tabs>
-                </Paper>
-              </Col>
-            </Row>
+</Tab>
+</Tabs>
+</Paper>
+</Col>
+</Row>
 
-          </Col>
-          <Col xs={0} sm={0} md={2} lg={2}/>
-        </Row>
-      </div>
+</Col>
+<Col xs={0} sm={0} md={2} lg={2}/>
+</Row>
+</div>
     )
-  }
+}
 });
 
 CourseModule = connect()(CourseModule)

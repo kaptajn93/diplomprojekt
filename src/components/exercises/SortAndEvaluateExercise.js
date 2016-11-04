@@ -14,7 +14,9 @@ import TextField from 'material-ui/lib/text-field';
 import CircularProgress from 'material-ui/lib/circular-progress';
 import Theme from '../Theme';
 
-import { putSortAndEvalResultById, getExerciseResult } from '../../actions/api'
+//import { putSortAndEvalResultById, getExerciseResult } from '../../actions/api'
+import { putSortAndEvalResultById } from '../../actions/OtherActions/putSortAndEvalResultById'
+import { getExerciseResult } from '../../actions/ExerciseAndResource/getExerciseResult'
 
 let EvalPhase = React.createClass({
   getInitialState: function(){

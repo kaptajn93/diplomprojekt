@@ -19,7 +19,8 @@ import FontIcon from 'material-ui/lib/font-icon';
 import Dialog from 'material-ui/lib/dialog';
 import ListItem from 'material-ui/lib/lists/list-item';
 import styles from 'material-ui/lib/styles';
-import { resetCourseAdmissionToModule } from '../actions/api';
+
+import { resetCourseAdmissionToModule } from '../actions/OtherActions/resetCourseAdmissionToModule';
 import { logOut } from '../actions/authentication';
 
 const {Grid, Row, Col} = require('react-flexgrid');

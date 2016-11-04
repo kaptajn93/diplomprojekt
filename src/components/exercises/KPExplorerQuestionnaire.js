@@ -14,7 +14,9 @@ import Theme from '../Theme';
 
 import CircularProgress from 'material-ui/lib/circular-progress';
 
-import { putKpExplorerResultById, getExerciseResult } from '../../actions/api'
+//import { putKpExplorerResultById, getExerciseResult } from '../../actions/api'
+import { getExerciseResult } from '../../actions/ExerciseAndResource/getExerciseResult'
+import { putKpExplorerResultById } from '../../actions/OtherActions/putKpExplorerResultById'
 
 const styles = {
   radioButton: {

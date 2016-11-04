@@ -1,4 +1,5 @@
-import {TEST_API, REQUEST_POSTS, RECEIVE_POSTS} from '../actions/api'
+//import {TEST_API, REQUEST_POSTS, RECEIVE_POSTS} from '../actions/api'
+import {TEST_API, REQUEST_POSTS, RECEIVE_POSTS} from '../actions/authentication'
 
 const api = (state = {
   isFetching: false,

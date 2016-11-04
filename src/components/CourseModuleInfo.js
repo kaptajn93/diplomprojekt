@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchApiValue } from '../actions/api'
+//import { fetchApiValue } from '../actions/api'
 
 import FlatButton from 'material-ui/lib/flat-button';
 import CircularProgress from 'material-ui/lib/circular-progress';
 
-import { getAllCourses, getAllCourseModules, getResourceById, putResourceById } from '../actions/api'
+//import { getAllCourses, getAllCourseModules, getResourceById, putResourceById } from '../actions/api'
+import { getAllCourses } from '../actions/Course/getAllCourses'
+import { getAllCourseModules } from '../actions/Course/getAllCourseModules'
+import { getResourceById } from '../actions/ExerciseAndResource/getResourceById'
+import { putResourceById } from '../actions/ExerciseAndResource/putResourceById'
 
 
 

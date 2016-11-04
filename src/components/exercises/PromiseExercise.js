@@ -11,7 +11,9 @@ import TextField from 'material-ui/lib/text-field';
 
 import CircularProgress from 'material-ui/lib/circular-progress';
 
-import { putModulePromiseResultById, getExerciseResult } from '../../actions/api'
+//import { putModulePromiseResultById, getExerciseResult } from '../../actions/api'
+import { putModulePromiseResultById } from '../../actions/Module/putModulePromiseResultById'
+import { getExerciseResult } from '../../actions/ExerciseAndResource/getExerciseResult'
 import Theme from '../Theme';
 
 const styles = {

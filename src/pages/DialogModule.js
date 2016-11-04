@@ -18,7 +18,11 @@ import Colors from 'material-ui/lib/styles/colors';
 import EditorInsertChart from 'material-ui/lib/svg-icons/editor/insert-chart';
 import Comment from 'material-ui/lib/svg-icons/communication/comment';
 import { Link, browserHistory } from 'react-router';
-import {  getUserDialogs, postDialogMessage } from '../actions/api';
+
+//import {  getUserDialogs, postDialogMessage } from '../actions/api';
+import { postDialogMessage } from '../actions/OtherActions/postDialogMessage';
+import { getUserDialogs } from '../actions/User/getUserDialogs';
+
 import CircularProgress from 'material-ui/lib/circular-progress';
 import RightArrow from 'material-ui/lib/svg-icons/navigation/chevron-right';
 import LeftArrow from 'material-ui/lib/svg-icons/navigation/chevron-left';

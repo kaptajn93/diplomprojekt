@@ -1,20 +1,20 @@
 import axios from 'axios'
+import api from '../../apiUrlHelper'
+var apiUrl = api.url;
+import * as C from '../constants';
 
-//const apiUrl = 'http://localhost:58982/api'
-const apiUrl = 'http://betterways-test.azurewebsites.net/api'
-
-export const REQUEST_SHARE_VIDEO = 'REQUEST_SHARE_VIDEO'
+//export const REQUEST_SHARE_VIDEO = 'REQUEST_SHARE_VIDEO'
 function requestShareVideo(videoUuid) {
   return {
-    type: REQUEST_SHARE_VIDEO,
+    type: C.REQUEST_SHARE_VIDEO,
     videoUuid
   }
 }
 
-export const RECEIVE_SHARE_VIDEO = 'RECEIVE_SHARE_VIDEO'
+//export const RECEIVE_SHARE_VIDEO = 'RECEIVE_SHARE_VIDEO'
 function receiveShareVideo(videoUuid, result) {
   return {
-    type: RECEIVE_SHARE_VIDEO,
+    type: C.RECEIVE_SHARE_VIDEO,
     videoUuid,
     result: result,
     receivedAt: Date.now()

@@ -24,7 +24,9 @@ import Video from '../components/Video';
 
 import Theme from '../components/Theme';
 
-import { getVideoExercise, postVideoReply } from '../actions/shareVideo';
+import { getVideoExercise } from '../actions/OtherActions/shareVideo';
+import { postVideoReply } from '../actions/OtherActions/shareVideo';
+//import { getVideoExercise, postVideoReply } from '../actions/shareVideo';
 
 const {Grid, Row, Col} = require('react-flexgrid');
 

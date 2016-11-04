@@ -20,7 +20,10 @@ import DropDownMenu from 'material-ui/lib/DropDownMenu';
 import IntroductionContentAdministration from '../components/AdministrationComponents/IntroductionContentAdministration';
 import ExerciseContentAdministration from '../components/AdministrationComponents/ExerciseContentAdministration';
 
-import { getAllCourses, getAllCourseModules, putModuleDescription } from '../actions/api'
+//import { getAllCourses, getAllCourseModules, putModuleDescription } from '../actions/api'
+import { getAllCourses } from '../actions/Course/getAllCourses'
+import { getAllCourseModules } from '../actions/Course/getAllCourseModules'
+import { putModuleDescription } from '../actions/Module/putModuleDescription'
 
 const {Grid, Row, Col} = require('react-flexgrid');
 

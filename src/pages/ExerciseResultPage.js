@@ -17,13 +17,15 @@ import Colors from 'material-ui/lib/styles/colors';
 import EditorInsertChart from 'material-ui/lib/svg-icons/editor/insert-chart';
 import Comment from 'material-ui/lib/svg-icons/communication/comment';
 import { Link, browserHistory } from 'react-router';
-import { getUserResult } from '../actions/api';
+//import { getUserResult } from '../actions/api';
+import { getUserResult } from '../actions/User/getUserResult';
 import CircularProgress from 'material-ui/lib/circular-progress';
 import RightArrow from 'material-ui/lib/svg-icons/navigation/chevron-right';
 import LeftArrow from 'material-ui/lib/svg-icons/navigation/chevron-left';
 import IconButton from 'material-ui/lib/icon-button';
 import Check from 'material-ui/lib/svg-icons/navigation/check';
-import { getModuleExercises } from '../actions/api';
+//import { getModuleExercises } from '../actions/api';
+import { getModuleExercises } from '../actions/Module/getModuleExercises';
 import ExerciseSelector from '../components/Exercises/ExerciseSelector';
 import Theme from '../components/Theme';
 

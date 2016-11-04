@@ -10,7 +10,11 @@ import TextField from 'material-ui/lib/text-field';
 
 import CircularProgress from 'material-ui/lib/circular-progress';
 
-import { putExerciseGoalResultById, getExerciseResult } from '../../actions/api'
+//import { putExerciseGoalResultById, getExerciseResult } from '../../actions/api'
+import { putExerciseGoalResultById } from '../../actions/ExerciseAndResource/putExerciseGoalResultById'
+import { getExerciseResult } from '../../actions/ExerciseAndResource/getExerciseResult'
+
+
 import Theme from '../Theme';
 
 let GoalExercise = React.createClass({

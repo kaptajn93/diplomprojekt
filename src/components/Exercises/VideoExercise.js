@@ -13,7 +13,10 @@ import TextField from 'material-ui/lib/text-field';
 import CircularProgress from 'material-ui/lib/circular-progress';
 import Video from '../Video';
 
-import { putExerciseVideoResultById, getExerciseResult } from '../../actions/api'
+//import { putExerciseVideoResultById, getExerciseResult } from '../../actions/api'
+import { putExerciseVideoResultById } from '../../actions/ExerciseAndResource/putExerciseVideoResultById'
+import { getExerciseResult } from '../../actions/ExerciseAndResource/getExerciseResult'
+
 import Theme from '../Theme';
 
 let VideoExercise = React.createClass({

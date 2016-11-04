@@ -10,13 +10,15 @@ import Paper from 'material-ui/lib/paper';
 
 import Divider from 'material-ui/lib/divider';
 
-import { shareVideo } from '../actions/shareVideo';
+
 import Back from 'material-ui/lib/svg-icons/navigation/arrow-back';
 import FontIcon from 'material-ui/lib/font-icon';
 
 import Theme from '../components/Theme';
 
-import { getExerciseResult } from '../actions/api';
+import { shareVideo } from '../actions/OtherActions/shareVideo';
+import { getExerciseResult } from '../actions/ExerciseAndResource/getExerciseResult';
+
 import CircularProgress from 'material-ui/lib/circular-progress';
 
 const {Grid, Row, Col} = require('react-flexgrid');

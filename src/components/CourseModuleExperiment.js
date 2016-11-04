@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import ExerciseSelector from './Exercises/ExerciseSelector';
 
-import { fetchApiValue } from '../actions/api'
+//import { fetchApiValue } from '../actions/api'
 
 import Camera from './Camera'
 
@@ -13,9 +13,10 @@ import IconButton from 'material-ui/lib/icon-button';
 import Paper from 'material-ui/lib/paper';
 import Theme from './Theme';
 
-import { shareVideo } from '../actions/shareVideo'
+import { shareVideo } from '../actions/OtherActions/shareVideo'
 
-import { getExerciseResourceById } from '../actions/api'
+//import { getExerciseResourceById } from '../actions/api'
+import { getExerciseResourceById } from '../actions/ExerciseAndResource/getExerciseResourceById'
 
 let CourseModuleExperiment = React.createClass({
   getInitialState: function(){

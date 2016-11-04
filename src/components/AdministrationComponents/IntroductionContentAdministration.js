@@ -11,7 +11,11 @@ import MenuItem from 'material-ui/lib/menus/menu-item';
 import RaisedButton from 'material-ui/lib/raised-button';
 import FlatButton from 'material-ui/lib/flat-button';
 
-import { getResourceById, putResourceById } from '../../actions/api'
+//import { getResourceById, putResourceById } from '../../actions/api'
+import { getResourceById } from '../../actions/ExerciseAndResource/getResourceById'
+import { putResourceById } from '../../actions/ExerciseAndResource/putResourceById'
+
+
 import CKEditor from './CKEditor';
 import CircularProgress from 'material-ui/lib/circular-progress';
 
