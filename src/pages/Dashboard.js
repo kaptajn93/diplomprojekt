@@ -145,29 +145,22 @@ let Dashboard = React.createClass({
         this.props.dispatch(getUserResult()).then(
           json => {
 
+              var temp = json.results.groups[2];
+              var temp1 = json.results.groups[3];
+
+              json.results.groups.pop();
+              json.results.groups.pop();
+              json.results.groups.unshift(temp1);
+              json.results.groups.unshift(temp);
+             //lidt lækkert slut
+
               for (var i = 0; i < json.results.moduleResults.length; i++) {
                   json.results.moduleResults[i].isCompleted = !json.results.moduleResults[i].moduleResults.some((r, index) =>
                       !r.isCompleted
                   );
                   json.results.moduleResults[i].isActive = json.results.activeModuleIndex === i;
               }
-              //prøver lidt mere lækkert
-
-              var temp =  json.results.groups[0];
-              var temp1 = json.results.groups[1];
-
-              json.results.groups[0] = json.results.groups[2];
-              json.results.groups[1] = json.results.groups[3];
-              json.results.groups[2] = temp;
-              json.results.groups[3] = temp1;
-
-              var temp = json.results.moduleResults[11];
-              json.results.moduleResults.pop();
-              json.results.moduleResults.unshift(temp);
-
               
-
-
               //Separate into groups
               var groups = json.results.groups.map((g, index) => {
                   var modules = json.results.moduleResults.filter((m, index) => m.module.groupId === g.groupId);
