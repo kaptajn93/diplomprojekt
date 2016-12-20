@@ -26,3 +26,15 @@ export default {
     pickerHeaderColor: Colors.cyan500,
   }
 };
+  export const styles = {
+      radioButton: {
+          marginTop: 8,
+          width:24,
+          marginLeft: 'auto',
+          marginRight: 'auto'
+      },
+      scoreIndicator:{
+          paddingRight: 24,
+          display:'table-cell'
+      }
+  };

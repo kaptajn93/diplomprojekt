@@ -145,15 +145,6 @@ let Dashboard = React.createClass({
         this.props.dispatch(getUserResult()).then(
           json => {
 
-              var temp = json.results.groups[2];
-              var temp1 = json.results.groups[3];
-
-              json.results.groups.pop();
-              json.results.groups.pop();
-              json.results.groups.unshift(temp1);
-              json.results.groups.unshift(temp);
-             //lidt lækkert slut
-
               for (var i = 0; i < json.results.moduleResults.length; i++) {
                   json.results.moduleResults[i].isCompleted = !json.results.moduleResults[i].moduleResults.some((r, index) =>
                       !r.isCompleted
@@ -181,7 +172,6 @@ let Dashboard = React.createClass({
                   };
                   
               });
-             
 
               this.setState({
                   results: json.results,
@@ -243,16 +233,7 @@ var ExerciseResuts = this.state.currentModuleResults !== undefined ? this.state.
 
     )) : null;
 
-//prøver lidt mere lækkert
 
-//    var temp = this.state.groups[0];
-//    var temp1 = this.state.groups[1];
-
-
-//this.state.groups[0] = this.state.groups[2];
-//this.state.groups[1] = this.state.groups[3];
-//this.state.groups[2] = temp;
-//this.state.groups[3] = temp1;
 
 var groups = this.state.groups !== undefined ? this.state.groups.map((g, index) => {
     return (
