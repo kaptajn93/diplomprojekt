@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+//import AddTodo from '../containers/AddTodo'
+//import VisibleTodoList from '../containers/VisibleTodoList'
 import RaisedButton from 'material-ui/lib/raised-button';
 import FlatButton from 'material-ui/lib/flat-button';
 
