@@ -170,7 +170,7 @@ let LoginPage = React.createClass({
                             onChange={this.handlePasswordChange}
                           />
                           <br/>
-                          <RaisedButton onClick={this.handleSubmit} primary={true} style={{marginTop:32}} label="Log ind" />
+                      <RaisedButton onClick={this.handleSubmit} primary={true} style={{marginTop:32}} label="Log ind" />
                         </Col>
                       </Row>
                     </div>

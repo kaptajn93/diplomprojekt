@@ -29,7 +29,7 @@ export function getAllCourses(){
     // that the API call is starting.
     dispatch(requestApiAllCourses())
 
-    return axios.get(apiUrl + '/Course/')
+    return axios.get(apiUrl + '/course')
       .then(response => response.data)
       .then(json =>
 
