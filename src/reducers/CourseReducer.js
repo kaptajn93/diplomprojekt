@@ -1,4 +1,4 @@
-﻿import * as C from '../../actions/constants';
+﻿import * as C from '../actions/constants';
 
 const userReducer = (state = {
     isFetching: false,

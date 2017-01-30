@@ -2,11 +2,11 @@ import { combineReducers } from 'redux'
 //import todos from './todos'
 //import visibilityFilter from './visibilityFilter'
 import api from './api'
-import userReducer from                     './New/UserReducer'
-import courseReducer from                   './New/CourseReducer'
-import ModuleReducer from                   './New/moduleReducer'
-import otherActionsReducer from             './New/OtherActionsReducer'
-import exerciseAndResourceReducer from      './New/ExerciseAndResourceReducer'
+import userReducer from                     './UserReducer'
+import courseReducer from                   './CourseReducer'
+import ModuleReducer from                   './moduleReducer'
+import otherActionsReducer from             './OtherActionsReducer'
+import exerciseAndResourceReducer from      './ExerciseAndResourceReducer'
 
 
 

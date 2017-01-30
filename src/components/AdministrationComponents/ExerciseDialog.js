@@ -18,7 +18,8 @@ const items = [
   <MenuItem key={3} value={'KPExplorerQuestionnaire'} primaryText="KP explorer"/>,
   <MenuItem key={4} value={'Promise'} primaryText="Reflektion" />,
   <MenuItem key={5} value={'Goal'} primaryText="Mål for øvelse" />,
-  <MenuItem key={6} value={'QuestionAnswer'} primaryText="Spærgsmål og fritekstsvar" />
+  <MenuItem key={6} value={'QuestionAnswer'} primaryText="Spørgsmål og fritekstsvar" />,
+  <MenuItem key={7} value={'PostItExercise'} primaryText="Post-it" />
 ];
 
 var ConfigureExerciseDialog = React.createClass({

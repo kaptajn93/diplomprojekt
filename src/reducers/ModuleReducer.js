@@ -1,7 +1,7 @@
-﻿import * as C from '../../actions/constants';
+﻿import * as C from '../actions/constants';
 
 
-const userReducer = (state = {
+const moduleReducer = (state = {
     isFetching: false,
     didInvalidate: false,
     items: [],
@@ -9,15 +9,15 @@ const userReducer = (state = {
 }, action) => {
     switch (action.type) {
 
-        case C.REQUEST_POST_DIALOG_MESSAGE:
-            console.log("UserReducer GOT REQUEST_POST_DIALOG_MESSAGE");
+        case C.REQUEST_API_MODULE:
+            console.log("ModuleReducer GOT REQUEST_API_MODULE");
             return Object.assign({}, state, {
                 isFetching: true,
                 didInvalidate: false
             })
 
-        case C.RECEIVE_POST_DIALOG_MESSAGE:
-            console.log("UserReducer GOT RECEIVE_GET_CURRENT_USER");
+        case C.RECEIVE_API_MODULE:
+            console.log("ModuleReducer GOT RECEIVE_API_MODULE");
             return Object.assign({}, state, {
                 isFetching: false,
                 didInvalidate: false,
@@ -25,15 +25,14 @@ const userReducer = (state = {
                 lastUpdated: action.receivedAt
             })
 
-        case C.REQUEST_SEND_SMS:
-            console.log("UserReducer GOT REQUEST_SEND_SMS");
+        case C.REQUEST_ALL_MODULE_EXERCISES:
+            console.log("ModuleReducer GOT QUEST_ALL_MODULE_EXERCISES");
             return Object.assign({}, state, {
                 isFetching: true,
                 didInvalidate: false
             })
-
-        case C.RECEIVE_SEND_SMS:
-            console.log("UserReducer GOT RECEIVE_SEND_SMS");
+        case C.RECEIVE_ALL_MODULE_EXERCISES:
+            console.log("ModuleReducer GOT RECEIVE_ALL_MODULE_EXERCISES");
             return Object.assign({}, state, {
                 isFetching: false,
                 didInvalidate: false,
@@ -41,38 +40,29 @@ const userReducer = (state = {
                 lastUpdated: action.receivedAt
             })
 
-        case C.REQUEST_SHARE_VIDEO:
-            console.log("UserReducer GOT REQUEST_GET_USER_RESULT");
+        case C.REQUEST_GET_MODULE_RESULT:
+            console.log("ModuleReducer GOT EST_GET_MODULE_RESULT");
             return Object.assign({}, state, {
                 isFetching: true,
                 didInvalidate: false
             })
 
-        case C.RECEIVE_SHARE_VIDEO:
-            console.log("UserReducer GOT RECEIVE_GET_USER_RESULT");
+        case C.RECEIVE_GET_MODULE_RESULT:
+            console.log("ModuleReducer GOT RRECEIVE_GET_MODULE_RESULT");
             return Object.assign({}, state, {
                 isFetching: false,
                 didInvalidate: false,
                 items: action.posts,
                 lastUpdated: action.receivedAt
             })
-        
-            //put?? login??
+            //put??
 
-            //LOGIN_REQUEST: 'LOGIN_REQUEST',
-            //LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-            //LOGIN_FAILURE: 'LOGIN_FAILURE',
-
-            //PUT_API_KP_EXPLORER_RESULT: 'PUT_API_KP_EXPLORER_RESULT',
-            //PUT_API_QUESTION_ANSWER_RESULT: 'PUT_API_QUESTION_ANSWER_RESULT',
-
-            //PUT_API_SORT_AND_EVAL_RESULT: 'PUT_API_SORT_AND_EVAL_RESULT',
-            //PUT_API_SORT_AND_EVAL_RESULT: 'PUT_API_SORT_AND_EVAL_RESULT',
-
+            //PUT_API_MODULE_DESCRIPTION: 'PUT_API_MODULE_DESCRIPTION',
+            //PUT_API_MODULE_PROMISE_RESULT: 'PUT_API_MODULE_PROMISE_RESULT',
 
         default:
             return state
     }
 }
 
-export default userReducer
+export default moduleReducer
